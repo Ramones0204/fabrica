@@ -83,9 +83,48 @@ module.exports = app => {
            .post(app.api.tipoproduto.save)
             .get(app.api.tipoproduto.get)
     
-     app.route('/tiposprodutos/:id')
+    app.route('/tiposprodutos/:id')
             .put(app.api.tipoproduto.save)
             .get(app.api.tipoproduto.getById)
             .delete(app.api.tipoproduto.remove)
- 
-}
+    
+     app.route('/cupomdesconto')
+            .post(app.api.cupomdesconto.save)
+             .get(app.api.cupomdesconto.get)
+     
+     app.route('/cupomdesconto/:id')
+             .put(app.api.cupomdesconto.save)
+             .get(app.api.cupomdesconto.getById)
+             .delete(app.api.cupomdesconto.remove)
+     
+    app.route('/cliente')
+             .post(app.api.cliente.save)
+              .get(app.api.cliente.get)
+      
+    app.route('/cliente/:id')
+              .put(app.api.cliente.save)
+              .get(app.api.cliente.getById)
+
+    app.route('/funcionario')
+              .post(app.api.funcionario.save)
+              // .get(app.api.funcionario.get)
+              .get(app.api.funcionario.getTeste)
+              
+    app.route('/funcionario/:id')
+               .put(app.api.funcionario.save)
+               .get(app.api.funcionario.getById)
+    
+    app.route('/time')
+        .post(app.api.time.save)
+        .get(app.api.time.get)
+    
+    app.route('/time/:id')
+        .put(app.api.time.save)
+        .get(app.api.time.getById)
+        .delete(app.api.time.remove)
+
+    app.route('/produto')
+        .post(app.api.produto.save)
+        .get(app.api.produto.get)
+             
+}   
