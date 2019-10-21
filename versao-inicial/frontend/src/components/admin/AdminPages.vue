@@ -1,21 +1,34 @@
 <template>
     <div class="admin-pages">
-        <PageTitle icon="fa fa-cogs" main="Administração do Sistema"
-            sub="Cadastros & Cia" />
+        <PageTitle icon="fa fa-cogs" main="Administração do Sistema" />
         <div class="admin-pages-tabs">
             <b-card no-body>
                 <b-tabs card>
-                    <b-tab title="Artigos" active>
-                        <ArticleAdmin />
-                    </b-tab>
-                    <b-tab title="Categorias">
-                        <CategoryAdmin />
-                    </b-tab>
+                   
+                   
                     <b-tab title="Usuários">
                         <UserAdmin />
                     </b-tab>
                      <b-tab title="Cargos">
-                       <h1>Cargos</h1>
+                        <CargoAdmin />
+                    </b-tab>
+                    <b-tab title="Ligas">
+                        <LigaAdmin />
+                    </b-tab>
+                     <b-tab title="Marcas">
+                        <MarcaAdmin />
+                    </b-tab>
+                    <b-tab title="Tipo Produto">
+                        <TipoProdutoAdmin />
+                    </b-tab>
+                     <b-tab title="Cupom Desconto">
+                        <CupomAdmin />
+                    </b-tab>
+                     <b-tab title="Time">
+                        <TimeAdmin />
+                    </b-tab>
+                     <b-tab title="Funcionarios">
+                        <FuncionarioAdmin />
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -28,9 +41,17 @@ import PageTitle from '../template/PageTitle'
 import ArticleAdmin from './ArticleAdmin'
 import UserAdmin from './UserAdmin'
 import CategoryAdmin from './CategoryAdmin'
+import CargoAdmin from './CargoAdmin'
+import LigaAdmin from './LigaAdmin'
+import MarcaAdmin from './MarcaAdmin'
+import TipoProdutoAdmin from './TipoProdutoAdmin'
+import CupomAdmin from './CupomAdmin'
+import TimeAdmin from './TimeAdmin'
+import FuncionarioAdmin from './FuncionarioAdmin'
+
 export default {
     name:'AdminPages',
-    components:{PageTitle,CategoryAdmin,ArticleAdmin,UserAdmin}
+    components:{PageTitle,CategoryAdmin,ArticleAdmin,UserAdmin,CargoAdmin,LigaAdmin,MarcaAdmin,TipoProdutoAdmin,CupomAdmin,TimeAdmin,FuncionarioAdmin}
 }
 </script>
 

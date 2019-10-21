@@ -8,14 +8,14 @@ module.exports = app => {
 
     app.route('/users')
       //  .all(app.config.passport.authenticate())
-        .post(admin(app.api.user.save))
+        .post(app.api.user.save)
         .get(app.api.user.get)
 
     app.route('/users/:id')
-        .all(app.config.passport.authenticate())
-        .put(admin(app.api.user.save))
-        .get(admin(app.api.user.getById))
-        .delete(admin(app.api.user.remove))
+        //.all(app.config.passport.authenticate())
+        .put(app.api.user.save)
+        .get(app.api.user.getById)
+        .delete(app.api.user.remove)
 
     app.route('/categories')
         .all(app.config.passport.authenticate())
@@ -107,12 +107,13 @@ module.exports = app => {
 
     app.route('/funcionario')
               .post(app.api.funcionario.save)
-              // .get(app.api.funcionario.get)
-              .get(app.api.funcionario.getTeste)
+              .get(app.api.funcionario.get)
+           //   .get(app.api.funcionario.getTeste)
               
-    app.route('/funcionario/:id')
+    app.route('/funcionario/:matricula')
                .put(app.api.funcionario.save)
-               .get(app.api.funcionario.getById)
+              .get(app.api.funcionario.getById)
+               .delete(app.api.funcionario.remove)
     
     app.route('/time')
         .post(app.api.time.save)

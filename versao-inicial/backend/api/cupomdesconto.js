@@ -41,6 +41,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('cumpomdesconto')
+            .orderBy('id')
             .then(cupons => res.json(cupons))
             .catch(err => res.status(500).send(err))
     }

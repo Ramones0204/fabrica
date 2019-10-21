@@ -40,6 +40,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('ligas')
+          .orderBy('id')
             .then(ligas => res.json(ligas))
             .catch(err => res.status(500).send(err))
     }

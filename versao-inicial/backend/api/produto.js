@@ -33,7 +33,7 @@ module.exports  = app => {
     }
     
     const get = (req, res) => {
-      app.db('produtos').innerJoin('marcas','idMarca','marcas.id')
+      app.db('produtos')
         .then(produtos => res.json(produtos))
         .catch(err => res.status(500).send(err))
     }

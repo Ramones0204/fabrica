@@ -19,12 +19,12 @@ module.exports = app => {
             app.db('cargos')
                 .update(cargo)
                 .where({id: cargo.id})
-                .then(_ => res.status(204).send)
+                .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else{
             app.db('cargos')
                 .insert(cargo)
-                .then(_ => res.status(204).send)
+                .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         }
     }
@@ -44,6 +44,7 @@ module.exports = app => {
     //const limit = 10 // usando para paginação   
     const get = (req, res) => {
         app.db('cargos')
+            .orderBy('id')
             .then(cargos => res.json(cargos))
             .catch(err => res.status(500).send(err))
     }

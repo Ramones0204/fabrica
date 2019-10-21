@@ -19,7 +19,7 @@ module.exports  = app => {
         if(time.id){
             app.db('times')
                 .update(time)
-                .where({id: time.id})
+                .where({idTime: time.idTime})
                 .then(id=> res.status(204).send())
                 .cath(err => res.status(500).send(err))
         } else{
@@ -32,6 +32,7 @@ module.exports  = app => {
     
     const get = (req, res) => {
       app.db('times').innerJoin('ligas','ligas.id','times.ligaId')
+        .orderBy('idTime')
         .then(times => res.json(times))
         .catch(err => res.status(500).send(err))
     }
