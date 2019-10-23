@@ -8,7 +8,7 @@ module.exports = app => {
 
         try{
             existsOrError(cargo.name, 'Nome não informado')
-            existsOrError(cargo.salary, 'Cargo não informado')
+            existsOrError(cargo.salary, 'Valor não informado')
           
 
         } catch(msg){
@@ -31,9 +31,16 @@ module.exports = app => {
 
     const remove = async (req,res) => {
         try{
+            const funcionarios = await app.db('funcionarios')
+                .where({cargoId:req.params.id})
+            notExistsOrError(funcionarios,'Cargo possui funcionarios vinculados.')
+
             const rowsDeletd = await app.db('cargos')
             .where({ id: req.params.id}).del()
             existsOrError(rowsDeletd,'Cargo não foi encontrado')
+
+           
+
             res.status(204).send()
         } catch(msg){
             res.status(400).send(msg)

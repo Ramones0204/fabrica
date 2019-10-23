@@ -119,7 +119,7 @@ module.exports = app => {
         .post(app.api.time.save)
         .get(app.api.time.get)
     
-    app.route('/time/:id')
+    app.route('/time/:idTime')
         .put(app.api.time.save)
         .get(app.api.time.getById)
         .delete(app.api.time.remove)

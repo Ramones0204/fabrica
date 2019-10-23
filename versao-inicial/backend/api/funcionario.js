@@ -14,7 +14,7 @@ module.exports = app => {
 
         try {
             existsOrError(funcionario.cpf, 'CPF não informado')
-            existsOrError(funcionario.name, 'Nome não informado')
+          //  existsOrError(funcionario.name, 'Nome não informado')
             existsOrError(funcionario.dataNascimento, 'Data de nascimento não informado')
             existsOrError(funcionario.sexo, 'sexo não informado')
             existsOrError(funcionario.email, 'Email não informado')

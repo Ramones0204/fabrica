@@ -208,7 +208,7 @@ export default {
     }
   },
   mounted() {
-    this.loadFuncionarios();
+   this.loadFuncionarios();
     this.loadCargos();
     
   }

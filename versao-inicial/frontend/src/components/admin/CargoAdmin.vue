@@ -20,6 +20,8 @@
             <b-form-input
               id="cargo-salary"
               type="text"
+              name="numbers"
+              pattern="[0-9]+$"
               v-model="cargo.salary"
               required
               :readonly="mode === 'remove'"

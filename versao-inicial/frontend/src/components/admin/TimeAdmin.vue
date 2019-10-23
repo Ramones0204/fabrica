@@ -35,7 +35,6 @@
               <option>PB</option>
               <option>PE</option>
               <option>PI</option>
-              
               <option>RJ</option>
               <option>RN</option>
               <option>RS</option>
@@ -124,8 +123,7 @@ export default {
         { key: "estado", label: "Estado", sortable: true },
         { key: "pais", label: "Pais", sortable: true },
         { key: "tipoTime", label: "Tipo Time", sortable: true },
-        { key: "name", label: "Liga", sortable: true },
-        // {key: 'ligaId',label:'ligaId',sortable:true},
+       // { key: "name", label: "Liga", sortable: true },
         { key: "actions", label: "Ações" }
       ]
     };
@@ -144,13 +142,13 @@ export default {
     },
     save() {
       const method = this.time.idTime ? "put" : "post";
-      const idTime = this.time.idtime ? `/${this.time.idtime}` : "";
+      const idTime = this.time.idTime ? `/${this.time.idTime}` : "";
       axios[method](`${baseApiUrl}/time${idTime}`, this.time)
         .then(() => {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-        .catch(showError);
+       // .catch(showError);
     },
     remove() {
       const idTime = this.time.idTime;
@@ -160,7 +158,7 @@ export default {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-        .catch(showError);
+       // .catch(showError);
     },
     loadTime(time, mode = "save") {
       this.mode = mode;
