@@ -15,11 +15,13 @@
             />
           </b-form-group>
         </b-col>
-         <b-col md="6" sm="12">
+        <b-col md="6" sm="12">
           <b-form-group label="Valor:" label-for="cupom-valor">
             <b-form-input
               id="cupom-valor"
               type="text"
+              name="numbers"
+              pattern="[0-9]+$"
               v-model="cupom.valor"
               required
               :readonly="mode === 'remove'"
@@ -47,7 +49,7 @@
 </template>
 
 <script>
-import { baseApiUrl,showError } from "@/global";
+import { baseApiUrl, showError } from "@/global";
 import axios from "axios";
 export default {
   name: "cupomAdmin",
@@ -61,7 +63,6 @@ export default {
         { key: "name", label: "Nome", sortable: true },
         { key: "valor", label: "Valor", sortable: true },
         { key: "actions", label: "Ações" }
-
       ]
     };
   },
@@ -72,7 +73,7 @@ export default {
         this.cupons = res.data;
       });
     },
-     reset() {
+    reset() {
       this.mode = "save";
       this.cupom = {};
       this.loadCupons();

@@ -34,8 +34,8 @@ module.exports = app => {
         .delete(admin(app.api.category.remove))
 
     app.route('/articles')
-        .all(app.config.passport.authenticate())
-        .get(admin(app.api.article.get))
+      //  .all(app.config.passport.authenticate()
+        .get(app.api.article.get)
         .post(admin(app.api.article.save))
 
     app.route('/articles/:id')
@@ -74,7 +74,7 @@ module.exports = app => {
           .post(app.api.liga.save)
            .get(app.api.liga.get)
    
-    app.route('/ligas/:id')
+    app.route('/ligas/:ligaId')
            .put(app.api.liga.save)
            .get(app.api.liga.getById)
            .delete(app.api.liga.remove)
@@ -125,7 +125,12 @@ module.exports = app => {
         .delete(app.api.time.remove)
 
     app.route('/produto')
-        .post(app.api.produto.save)
-        .get(app.api.produto.get)
+       .post(app.api.produto.save)
+       .get(app.api.produto.get)
+
+    app.route('/produto/:idProduto')
+        .put(app.api.produto.save)
+        .get(app.api.produto.getById)
+        .delete(app.api.produto.remove)
              
 }   

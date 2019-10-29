@@ -4,7 +4,7 @@ module.exports = app => {
     
     const save = (req, res) =>{
         const liga = {...req.body} 
-        if(req.params.id) liga.id = req.params.id
+        if(req.params.ligaId) liga.ligaId = req.params.ligaId
 
         try{
             existsOrError(liga.name, 'Nome não informado')
@@ -12,10 +12,10 @@ module.exports = app => {
             res.status(400).send(msg)
         }
 
-        if(liga.id){
+        if(liga.ligaId){
             app.db('ligas')
                 .update(liga)
-                .where({id: liga.id})
+                .where({ligaId: liga.ligaId})
                 .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else{
@@ -28,13 +28,14 @@ module.exports = app => {
 
     const remove = async (req,res) => {
         try{
-            const funcionarios = await app.db('times')
-            .where({ligaId:req.params.id})
-        notExistsOrError(funcionarios,'Liga possui time vinculados.')
+           // const times = await app.db('times')
+          //  .where({ligaId: req.params.ligaId})
+           //  notExistsOrError(times,'Liga possui time vinculados.')
 
             const rowsDeletd = await app.db('ligas')
-            .where({ id: req.params.id}).del()
+            .where({ ligaId: req.params.ligaId}).del()
             existsOrError(rowsDeletd,'Liga não foi encontrado')
+            
             res.status(204).send()
         } catch(msg){
             res.status(400).send(msg)
@@ -44,14 +45,14 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('ligas')
-          .orderBy('id')
+          .orderBy('ligaId')
             .then(ligas => res.json(ligas))
             .catch(err => res.status(500).send(err))
     }
     
     const getById = (req, res) => {
         app.db('ligas')
-            .where({ id: req.params.id })
+            .where({ ligaId: req.params.ligaId })
             .first()
             .then(liga => res.json(liga))
             .catch(err => res.status(500).send(err))

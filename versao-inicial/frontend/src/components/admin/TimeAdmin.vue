@@ -53,7 +53,6 @@
               <option>Norte</option>
               <option>Nordeste</option>
               <option>Centro-Oeste</option>
-              <option>Centro-Oeste</option>
               <option>Sudeste</option>
               <option>Sul</option>
             </b-form-select>
@@ -123,7 +122,7 @@ export default {
         { key: "estado", label: "Estado", sortable: true },
         { key: "pais", label: "Pais", sortable: true },
         { key: "tipoTime", label: "Tipo Time", sortable: true },
-       // { key: "name", label: "Liga", sortable: true },
+        { key: "ligaId", label: "Liga Id", sortable: true },
         { key: "actions", label: "Ações" }
       ]
     };
@@ -139,6 +138,7 @@ export default {
       this.mode = "save";
       this.time = {};
       this.loadTimes();
+      
     },
     save() {
       const method = this.time.idTime ? "put" : "post";
@@ -158,7 +158,7 @@ export default {
           this.$toasted.global.defaultSuccess();
           this.reset();
         })
-       // .catch(showError);
+        .catch(showError);
     },
     loadTime(time, mode = "save") {
       this.mode = mode;
@@ -168,7 +168,7 @@ export default {
       const url = `${baseApiUrl}/ligas`;
       axios.get(url).then(res => {
         this.ligas = res.data.map(liga => {
-          return { value: liga.id, text: liga.name };
+          return { value: liga.ligaId, text: liga.name };
         });
       });
     }

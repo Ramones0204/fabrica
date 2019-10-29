@@ -1,7 +1,7 @@
 <template>
   <div class="liga-admin">
     <b-form>
-      <input id="liga-id" type="hidden" v-model="liga.id" />
+      <input id="liga-id" type="hidden" v-model="liga.ligaId" />
       <b-row>
         <b-col md="6" sm="12">
           <b-form-group label="Nome:" label-for="liga-name">
@@ -45,7 +45,7 @@ export default {
       liga: {},
       ligas: [],
       fields: [
-        { key: "id", label: "Id", sortable: true },
+        { key: "ligaId", label: "Id", sortable: true },
         { key: "name", label: "Nome", sortable: true },
         { key: "actions", label: "Ações" }
       ]
@@ -64,9 +64,9 @@ export default {
       this.loadLigas();
     },
     save() {
-      const method = this.liga.id ? "put" : "post";
-      const id = this.liga.id ? `/${this.liga.id}` : "";
-      axios[method](`${baseApiUrl}/ligas${id}`, this.liga)
+      const method = this.liga.ligaId ? "put" : "post";
+      const ligaId = this.liga.ligaId ? `/${this.liga.ligaId}` : "";
+      axios[method](`${baseApiUrl}/ligas${ligaId}`, this.liga)
         .then(() => {
           this.$toasted.global.defaultSuccess();
           this.reset();
@@ -74,9 +74,9 @@ export default {
         .catch(showError);
     },
     remove() {
-      const id = this.liga.id;
+      const ligaId = this.liga.ligaId;
       axios
-        .delete(`${baseApiUrl}/ligas/${id}`)
+        .delete(`${baseApiUrl}/ligas/${ligaId }`)
         .then(() => {
           this.$toasted.global.defaultSuccess();
           this.reset();

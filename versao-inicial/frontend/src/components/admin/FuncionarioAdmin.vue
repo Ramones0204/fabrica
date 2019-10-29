@@ -19,6 +19,7 @@
           <b-form-input
             id="funcionario-cpf"
             type="text"
+            the-mask :mask="['###.###.###-##', '##.###.###/####-##']"
             v-model="funcionario.cpf"
             required
             :readonly="mode === 'remove'"
@@ -152,7 +153,7 @@ export default {
       fields: [
         { key: "matricula", label: "Matrícula", sortable: true },
         { key: "nameFuncionario", label: "Nome", sortable: true },
-        { key: "name", label: "Cargo", sortable: true },
+     //   { key: "name", label: "Cargo", sortable: true },
         { key: "actions", label: "Ações" }
       ]
      

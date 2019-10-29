@@ -51,7 +51,8 @@ module.exports = app => {
     }
 
     const get = (req, res) => {
-        app.db('funcionarios').innerJoin('cargos','cargos.id','funcionarios.cargoId')
+        app.db('funcionarios')
+        //.innerJoin('cargos','cargos.id','funcionarios.cargoId')
             .then(funcionarios => res.json(funcionarios))
             .catch(err => res.status(500).send(err))
     }
