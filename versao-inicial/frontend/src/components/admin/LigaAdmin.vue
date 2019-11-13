@@ -46,7 +46,7 @@ export default {
       ligas: [],
       fields: [
         { key: "ligaId", label: "Id", sortable: true },
-        { key: "name", label: "Nome", sortable: true },
+        { key: "name", label: "Ramon", sortable: true },
         { key: "actions", label: "Ações" }
       ]
     };

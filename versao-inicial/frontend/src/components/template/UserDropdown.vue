@@ -1,9 +1,9 @@
 <template>
     <div class="user-dropdown">
         <div class="user-button">
-            <span class="d-none d-sm-block">{{user.name}}</span>  
+            <span class="d-none d-sm-block">{{funcionario.nameFuncionario}}</span>  
             <div class="user-dropdown-img">
-                <Gravatar :email="user.email" alt="User"/>
+                <Gravatar :email="nameFuncionario.email" alt="User"/>
             </div>
             <i class="fa fa-angle-down"></i>
         </div>
@@ -24,7 +24,7 @@ import Gravatar from 'vue-gravatar'
 export default{
         name:'UserDropdown',
         components:{Gravatar},
-        computed: mapState(['user'])
+        computed: mapState(['funcionario'])
     
 }
 </script>

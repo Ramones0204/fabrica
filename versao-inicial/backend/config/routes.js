@@ -49,7 +49,7 @@ module.exports = app => {
         .get(app.api.article.getByCategory)
 
     app.route('/stats')
-        .all(app.config.passport.authenticate())
+        //.all(app.config.passport.authenticate())
         .get(app.api.stat.get)
 
     app.route('/cargos')
@@ -132,5 +132,12 @@ module.exports = app => {
         .put(app.api.produto.save)
         .get(app.api.produto.getById)
         .delete(app.api.produto.remove)
+
+    app.route('/carrinho')
+        .get(app.api.carrinho.get)
+
+    app.route('/pedido')
+        .get(app.api.pedido.get)
+        
              
 }   

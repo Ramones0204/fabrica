@@ -1,6 +1,6 @@
 
 <template>
-    <aside class="menu" v-show="isMenuVisible"></aside>
+    <aside class="menu" ></aside>
 </template>
 
 
@@ -17,7 +17,7 @@ export default {
 <style >
     .menu{
         grid-area: menu;
-        background: linear-gradient(to right,#232526,#414345);
+        background: linear-gradient(#eeffff);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;

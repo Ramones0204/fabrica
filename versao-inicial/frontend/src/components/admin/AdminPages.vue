@@ -30,8 +30,14 @@
                      <b-tab title="Funcionarios">
                         <FuncionarioAdmin />
                     </b-tab>
-                      <b-tab title="Produtos">
+                    <b-tab title="Produtos">
                         <ProdutoAdmin />
+                    </b-tab>
+                    <b-tab title="Lista pedido">
+                        <ListaPedidoAdmin/>
+                    </b-tab>
+                    <b-tab title="Lista Produto">
+                        <ListaProdutoAdmin/>
                     </b-tab>
                 </b-tabs>
             </b-card>
@@ -52,10 +58,12 @@ import CupomAdmin from './CupomAdmin'
 import TimeAdmin from './TimeAdmin'
 import FuncionarioAdmin from './FuncionarioAdmin'
 import ProdutoAdmin from './ProdutoAdmin'
+import ListaPedidoAdmin from './ListaPedidoAdmin'
+import ListaProdutoAdmin from './ListaProdutoAdmin'
 
 export default {
     name:'AdminPages',
-    components:{PageTitle,CategoryAdmin,ArticleAdmin,UserAdmin,CargoAdmin,LigaAdmin,MarcaAdmin,TipoProdutoAdmin,CupomAdmin,TimeAdmin,FuncionarioAdmin,ProdutoAdmin}
+    components:{PageTitle,CategoryAdmin,ArticleAdmin,UserAdmin,CargoAdmin,LigaAdmin,MarcaAdmin,TipoProdutoAdmin,CupomAdmin,TimeAdmin,FuncionarioAdmin,ListaPedidoAdmin,ListaProdutoAdmin,ProdutoAdmin}
 }
 </script>
 

@@ -1,9 +1,12 @@
 <template>
-	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header title="FanFootball" :hideToggle="false" :hideUserDropdown="false" />
-		<Menu/>
-		<Content/>
-		<Footer/>
+	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
+		<Header title="Cod3r - Base de Conhecimento" 
+			:hideToggle="!user"
+			:hideUserDropdown="!user" />
+		<Menu v-if="user" />
+		<Loading v-if="validatingToken" />
+		<Content v-else />
+		<Footer />
 	</div>
 </template>
 
@@ -17,7 +20,7 @@ import Footer from "./components/template/Footer"
 export default {
 	name: "App",
 	components:{Header,Menu,Footer,Content},
-	computed:mapState(['isMenuVisible'])
+	computed:mapState(['isMenuVisible','user'])
 }
 </script>
 

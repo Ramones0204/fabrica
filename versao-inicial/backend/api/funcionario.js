@@ -20,8 +20,8 @@ module.exports = app => {
             existsOrError(funcionario.email, 'Email não informado')
             existsOrError(funcionario.telefone, 'telefone não informado')
             existsOrError(funcionario.celular, 'celular não informado')
-            existsOrError(funcionario.senha, 'senha não informado')
-            equalsOrError(funcionario.senha, funcionario.confirmarSenha, 'Senhas não conferem')
+           // existsOrError(funcionario.senha, 'senha não informado')
+            //equalsOrError(funcionario.senha, funcionario.confirmarSenha, 'Senhas não conferem')
 
             //     const userFromDB = await app.db('clientes')
             // .where({email:user.email}).first()
@@ -36,8 +36,8 @@ module.exports = app => {
 
         delete funcionario.confirmarSenha
 
-        if (funcionario.id) {
-            app.db('funcionario')
+        if (funcionario.matricula) {
+            app.db('funcionarios')
                 .update(funcionario)
                 .where({ matricula: funcionario.matricula })
                 .then(matricula => res.status(204).send())
