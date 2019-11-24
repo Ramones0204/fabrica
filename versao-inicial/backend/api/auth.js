@@ -45,6 +45,7 @@ module.exports = app => {
         } catch(e) {
             // problema com o token
         }
+        console.log('parou aqui')
 
         res.send(false)
     }

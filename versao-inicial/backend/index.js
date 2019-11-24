@@ -6,6 +6,7 @@ require('./config/mongodb')
 
 app.db = db
 app.mongoose = mongoose
+var https = require('https')
 
 consign()
     .include('./config/passport.js')
@@ -16,6 +17,9 @@ consign()
     .then('./config/routes.js')
     .into(app)
 
-app.listen(3000, () => {
+
+app.listen(3000, https,() => {
+    
     console.log('Backend executando... ')
+   
 })

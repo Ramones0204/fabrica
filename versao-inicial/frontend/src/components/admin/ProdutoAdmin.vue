@@ -89,20 +89,14 @@
             <b-form-select id="produto-idMarca" :options="marcas" v-model="produto.idMarca" />
           </b-form-group>
         </b-col>
-       <b-col md="6" sm="12">
-          <b-form-group label="Imagem:" label-for="produto-imagem">
-            <b-form-input
-              id="produto-imagem"
-              type="text"
-              v-model="produto.imagem"
-              required
-              :readonly="mode === 'remove'"
-              placeholder=""
-            />
+        <b-col md="6" sm="12">
+          <b-form-group label="Imagem:" label-for="produto-imagem" label-cols-sm="2" label-size="sm">
+            <b-form-file id="produto-imagem" v-model="produto.imagem" size="sm"></b-form-file>
           </b-form-group>
         </b-col>
       </b-row>
       <b-button variant="primary" v-if="mode === 'save'" @click="save">Salvar</b-button>
+       <b-button variant="primary" v-if="mode === 'save'" @click="converter">Converter</b-button>
       <b-button variant="danger" v-if="mode === 'remove'" @click="remove">Excluir</b-button>
 
       <b-button class="ml-2" @click="reset">Cancelar</b-button>
@@ -121,10 +115,9 @@
   </div>
 </template>
 <script>
-
 import { baseApiUrl, showError } from "@/global";
 import axios from "axios";
-var fs = require('fs');
+var fs = require("fs");
 export default {
   name: "produtoAdmin",
   data: function() {
@@ -143,7 +136,7 @@ export default {
       ]
     };
   },
-  
+
   methods: {
     loadProdutos() {
       const url = `${baseApiUrl}/produto`;
@@ -206,19 +199,20 @@ export default {
         });
       });
     },
-    converter(){
-        var img = fs.readFileSync(this.produto.imagem);
-        return new Buffer(img).toString('base64');
-    },
-   
+    
+    converter() {
+        const fs = require('fs')
+        const caminho = __dirname + 'versao-inicial\frontend\src\assets\acg.jpg'
+        const conteudo = fs.readFileSync(caminho,'base64')
+        console.log(conteudo)
+    }
   },
   mounted() {
     this.loadProdutos();
     this.loadTime();
     this.loadTipoProduto();
     this.loadMarca();
-  },
-  
+  }
 };
 </script>
 

@@ -88,7 +88,7 @@ module.exports = app => {
             .get(app.api.tipoproduto.getById)
             .delete(app.api.tipoproduto.remove)
     
-     app.route('/cupomdesconto')
+    app.route('/cupomdesconto')
             .post(app.api.cupomdesconto.save)
              .get(app.api.cupomdesconto.get)
      
@@ -135,9 +135,24 @@ module.exports = app => {
 
     app.route('/carrinho')
         .get(app.api.carrinho.get)
+        .post(app.api.carrinho.save)
+        
+    
+    app.route('/carrinho/:nr_pedido')
+        .get(app.api.carrinho.getById)
+    
+    app.route('/total/:nr_pedido')
+        .get(app.api.carrinho.total)
+    
+    app.route('/carrinho/:nr_pedido/:nr_produto')
+        .delete(app.api.carrinho.remove)
 
     app.route('/pedido')
         .get(app.api.pedido.get)
-        
-             
+        .post(app.api.pedido.save)
+    
+    app.route('/pedido/:num_pedido')
+        .get(app.api.pedido.getById)     
+        .post(app.api.pedido.save)    
+ 
 }   

@@ -28,14 +28,9 @@ module.exports = app => {
 
     const remove = async (req,res) => {
         try{
-           // const times = await app.db('times')
-          //  .where({ligaId: req.params.ligaId})
-           //  notExistsOrError(times,'Liga possui time vinculados.')
-
             const rowsDeletd = await app.db('ligas')
             .where({ ligaId: req.params.ligaId}).del()
             existsOrError(rowsDeletd,'Liga não foi encontrado')
-            
             res.status(204).send()
         } catch(msg){
             res.status(400).send(msg)
