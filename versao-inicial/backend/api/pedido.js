@@ -49,6 +49,16 @@ module.exports = app => {
             .then(pedido => res.json(pedido))
             .catch(err => res.status(500).send(err))
     }
+
+
+    const finalizaPedido = (req, res) => {
+        app.db('pedido')
+            .update('st_pedido',1)
+            .where({ num_pedido: req.params.num_pedido })
+            .then(pedido => res.json(pedido))
+            .catch(err => res.status(500).send(err))
+    }
+    
    
-    return{get,getById,save,getByCpf}
+    return{get,getById,save,getByCpf,finalizaPedido}
 }
