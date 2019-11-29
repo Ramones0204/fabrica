@@ -1,6 +1,6 @@
 //export const baseApiUrl = 'http://192.168.107.127:3000'
 import Vue from 'vue'
-export const baseApiUrl = 'http://localhost:3000'
+export const baseApiUrl = 'https://localhost:3000'
 export const userKey = "__knowledge_user"
 //export const baseApiUrl = 'http://192.168.107.118:3001'
 

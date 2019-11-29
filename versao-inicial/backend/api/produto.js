@@ -9,9 +9,6 @@ module.exports = app => {
         try {
             existsOrError(produto.preco, 'Preço não informado')
             existsOrError(produto.desc, 'Descrição não informado')
-          //  existsOrError(produto.tipoManga, 'Tipo do Time não informado')
-           /// existsOrError(produto.tipoGola, 'Tipo do Time não informado')
-          //  existsOrError(produto.tamanho, 'Tipo do Time não informado')
             existsOrError(produto.nameProduto, 'Nome do Produto')
 
         } catch (msg) {
@@ -33,6 +30,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('produtos')
+            .orderBy('idProduto')
             .then(produtos => res.json(produtos))
             .catch(err => res.status(500).send(err))
     }

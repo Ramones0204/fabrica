@@ -17,6 +17,7 @@ module.exports = app => {
     
     const get = (req, res) => {
         app.db('carrinho')
+            .orderBy('nr_pedido')
             .then(carrinho => res.json(carrinho))
             .catch(err => res.status(500).send(err))
     }
@@ -40,7 +41,7 @@ module.exports = app => {
     }
 
     const total = (req, res) => {
-        app.db('carrinho').sum('sub_total as valor total')
+        app.db('carrinho').sum('sub_total as valor_total')
             .where({ nr_pedido: req.params.nr_pedido })
             .then(carrinho => res.json(carrinho))
             .catch(err => res.status(500).send(err))

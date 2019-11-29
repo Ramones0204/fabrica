@@ -52,19 +52,11 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('funcionarios')
-        //.innerJoin('cargos','cargos.id','funcionarios.cargoId')
+            .orderBy('matricula')
             .then(funcionarios => res.json(funcionarios))
             .catch(err => res.status(500).send(err))
     }
 
-   // const getById = (req, res) => {
-///   app.db('funcionarios')
-      ///      .where({ matricula: req.params.matricula })
-          //  .first()
-       ///     .then(funcionarios => res.json(funcionarios))
-        ///   .catch(err => res.status(500).send(err))
-    //}
-    
     const getById = (req, res) => {
         app.db('funcionarios')
             .where({ matricula: req.params.matricula})
@@ -73,17 +65,6 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-  //  const getTeste = (req, res) => {
-       // let cargos = [];
-       // app.db('funcionarios').innerJoin('cargos','cargos.id','funcionarios.cargoId')
-       // .then(funcionarios => {
-     //    var cargo = { 'id': funcionarios.id, 'name': funcionarios.name, "salary":funcionarios.salary};
-      //   cargos.push(cargo)  
-      //   funcionarios.cargo = cargos;
-        //   res.json(funcionarios)
-      // })
-      //  .catch(err => res.status(500).send(err))
-    //}
     const remove = async (req,res) => {
         try{
             const rowsDeletd = await app.db('funcionarios')
