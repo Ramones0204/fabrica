@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('funcionarios', table =>{
         table.increments('matricula').primary()
-        table.string('name').notNull()
+        table.string('nameFuncionario').notNull()
         table.string('cpf').notNull()
         table.string('sexo')
         table.string('email').notNull().unique()

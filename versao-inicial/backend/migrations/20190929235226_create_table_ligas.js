@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('ligas', table =>{
-        table.increments('id').primary()
+        table.increments('ligaId').primary()
         table.string('name').notNull()
        
         

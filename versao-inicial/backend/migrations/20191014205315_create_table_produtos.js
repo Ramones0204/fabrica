@@ -2,10 +2,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('produtos', table =>{
         table.increments('idProduto	').primary()
-        table.binary('imagem')
+        table.text('imagem')
         table.string('nameProduto')
 		table.string('desc')
-        table.float('preco')
+        table.string('preco')
         table.string('tipoGola')
         table.string('tipoManga')
         table.string('tamanho')
