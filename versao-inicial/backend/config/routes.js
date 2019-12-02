@@ -59,7 +59,7 @@ module.exports = app => {
               .get(app.api.cliente.get)
       
     app.route('/cliente/:id')
-              .put(app.api.cliente.save)
+              .post(app.api.cliente.save)
               .get(app.api.cliente.getById)
 
     app.route('/funcionario')

@@ -37,10 +37,10 @@ module.exports  = app => {
         delete cliente.confirmarSenha
 
         if(cliente.id){
-            app.db('cliente')
+            app.db('clientes')
                 .update(cliente)
                 .where({id: cliente.id})
-                .then(cliente=> res.status(204).send())
+                .then(_=> res.status(204).send())
                 .cath(err => res.status(500).send(err))
         } else{
             app.db('clientes')
@@ -52,9 +52,10 @@ module.exports  = app => {
 
     const get = (req, res) => {
         app.db('clientes')
+           .orderBy('id')
            // .select('id', 'name', 'email','sexo')
             //.whereNull('deletedAt')
-            .then(users => res.json(users))
+            .then(cliente => res.json(cliente))
             .catch(err => res.status(500).send(err))
     }
 

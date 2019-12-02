@@ -6,11 +6,8 @@ require('./config/mongodb')
 
 app.db = db
 app.mongoose = mongoose
-var fs = require('fs')
 var https = require('https')
 
-
-  
 consign()
     .include('./config/passport.js')
     .then('./config/middlewares.js')
@@ -21,10 +18,7 @@ consign()
     .into(app)
 
 
-https.createServer({
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert')
-},app).listen(3000, () => {
+app.listen(3000, https,() => {
     
     console.log('Backend executando... ')
    

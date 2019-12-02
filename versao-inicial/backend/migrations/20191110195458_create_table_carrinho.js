@@ -1,9 +1,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('carrinho', table =>{
-        table.integer('id_pedido').references('num_pedido').inTable('pedido')
-        table.integer('id_produto_carrinho').references('idProduto').inTable('produtos')
-        table.string('cpf_cliente').references('cpf').inTable('clientes')
-	
+        table.integer('nr_pedido').references('num_pedido').inTable('pedido')
+        table.integer('nr_produto').references('idProduto').inTable('produtos')
+        table.integer('qtd')
+        table.float('valor_unidade')
+        table.float('sub_total')
       
     })
 };
