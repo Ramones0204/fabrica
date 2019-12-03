@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         table.string('estado')
         table.string('pais')
         table.string('tipoTime')
-        table.integer('ligaId').references('id').inTable('ligas').notNull()
+        table.integer('ligaId').references('ligaId').inTable('ligas').notNull()
     })
 };
 
